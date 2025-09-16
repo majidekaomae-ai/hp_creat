@@ -6,46 +6,67 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEffects();
 });
 
-// Portfolio Filter Functionality
+// Portfolio Scroll Navigation Functionality
 function initializePortfolioFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-    // Add event listeners to filter buttons
+    // Add event listeners to filter buttons for scrolling
     filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
             const filter = button.dataset.filter;
             
             // Update active button
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             
-            // Filter portfolio items
-            filterPortfolioItems(filter, portfolioItems);
+            // Scroll to section
+            scrollToSection(filter);
         });
     });
 
-    // Initial filter setup
-    filterPortfolioItems('all', portfolioItems);
+    // Set initial active button
+    filterButtons[0].classList.add('active');
 }
 
-function filterPortfolioItems(filter, items) {
-    items.forEach(item => {
-        const category = item.dataset.category;
+function scrollToSection(filter) {
+    let targetElement;
+    
+    if (filter === 'all') {
+        // Scroll to top of portfolio section
+        targetElement = document.querySelector('.portfolio');
+    } else {
+        // Find the category header for the specific filter
+        const categoryHeaders = document.querySelectorAll('.category-header');
         
-        if (filter === 'all' || category === filter) {
-            item.classList.remove('hidden');
-            // Add stagger animation
-            setTimeout(() => {
-                item.style.opacity = '1';
-                item.style.transform = 'translateY(0)';
-            }, Math.random() * 200);
-        } else {
-            item.classList.add('hidden');
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-        }
-    });
+        categoryHeaders.forEach(header => {
+            const titleText = header.querySelector('.category-title').textContent.trim();
+            
+            // Map filter values to section titles
+            const filterMapping = {
+                'tv': '番組制作・編集',
+                'cm': 'CM',
+                'youtube': 'YouTube',
+                'tiktok': 'TikTok',
+                'event': 'イベント'
+            };
+            
+            if (titleText === filterMapping[filter]) {
+                targetElement = header;
+            }
+        });
+    }
+    
+    if (targetElement) {
+        // Calculate offset to account for fixed header
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const targetOffset = targetElement.offsetTop - headerHeight - 20;
+        
+        window.scrollTo({
+            top: targetOffset,
+            behavior: 'smooth'
+        });
+    }
 }
 
 
@@ -80,8 +101,10 @@ function initializeMobileMenu() {
 function initializeScrollEffects() {
     // Header background change on scroll
     const header = document.querySelector('.header');
+    const filterButtons = document.querySelectorAll('.filter-btn');
     
     window.addEventListener('scroll', () => {
+        // Header background change
         if (window.scrollY > 100) {
             header.style.background = 'rgba(255, 255, 255, 0.98)';
             header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
@@ -89,6 +112,9 @@ function initializeScrollEffects() {
             header.style.background = 'rgba(255, 255, 255, 0.95)';
             header.style.boxShadow = 'none';
         }
+        
+        // Update active navigation button based on scroll position
+        updateActiveNavButton(filterButtons);
     });
     
     // Intersection Observer for animations
@@ -113,6 +139,40 @@ function initializeScrollEffects() {
         item.style.transform = 'translateY(30px)';
         item.style.transition = 'all 0.6s ease';
         observer.observe(item);
+    });
+}
+
+function updateActiveNavButton(filterButtons) {
+    const categoryHeaders = document.querySelectorAll('.category-header');
+    const headerHeight = document.querySelector('.header').offsetHeight;
+    const scrollPosition = window.scrollY + headerHeight + 100;
+    
+    let activeFilter = 'all';
+    
+    categoryHeaders.forEach(header => {
+        const titleText = header.querySelector('.category-title').textContent.trim();
+        const headerTop = header.offsetTop;
+        
+        if (scrollPosition >= headerTop) {
+            // Map section titles to filter values
+            const titleMapping = {
+                '番組制作・編集': 'tv',
+                'CM': 'cm',
+                'YouTube': 'youtube',
+                'TikTok': 'tiktok',
+                'イベント': 'event'
+            };
+            
+            activeFilter = titleMapping[titleText] || 'all';
+        }
+    });
+    
+    // Update active button
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.filter === activeFilter) {
+            btn.classList.add('active');
+        }
     });
 }
 
