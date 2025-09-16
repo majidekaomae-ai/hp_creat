@@ -25,37 +25,30 @@ function initializePortfolioFilter() {
         });
     });
 
-    // Set initial active button
-    filterButtons[0].classList.add('active');
+    // No initial active button - user will click to navigate
 }
 
 function scrollToSection(filter) {
+    // Find the category header for the specific filter
+    const categoryHeaders = document.querySelectorAll('.category-header');
     let targetElement;
     
-    if (filter === 'all') {
-        // Scroll to top of portfolio section
-        targetElement = document.querySelector('.portfolio');
-    } else {
-        // Find the category header for the specific filter
-        const categoryHeaders = document.querySelectorAll('.category-header');
+    categoryHeaders.forEach(header => {
+        const titleText = header.querySelector('.category-title').textContent.trim();
         
-        categoryHeaders.forEach(header => {
-            const titleText = header.querySelector('.category-title').textContent.trim();
-            
-            // Map filter values to section titles
-            const filterMapping = {
-                'tv': '番組制作・編集',
-                'cm': 'CM',
-                'youtube': 'YouTube',
-                'tiktok': 'TikTok',
-                'event': 'イベント'
-            };
-            
-            if (titleText === filterMapping[filter]) {
-                targetElement = header;
-            }
-        });
-    }
+        // Map filter values to section titles
+        const filterMapping = {
+            'tv': '番組制作・編集',
+            'cm': 'CM',
+            'youtube': 'YouTube',
+            'tiktok': 'TikTok',
+            'event': 'イベント'
+        };
+        
+        if (titleText === filterMapping[filter]) {
+            targetElement = header;
+        }
+    });
     
     if (targetElement) {
         // Calculate offset to account for fixed header
@@ -147,7 +140,7 @@ function updateActiveNavButton(filterButtons) {
     const headerHeight = document.querySelector('.header').offsetHeight;
     const scrollPosition = window.scrollY + headerHeight + 100;
     
-    let activeFilter = 'all';
+    let activeFilter = null; // No active filter initially
     
     categoryHeaders.forEach(header => {
         const titleText = header.querySelector('.category-title').textContent.trim();
@@ -163,14 +156,14 @@ function updateActiveNavButton(filterButtons) {
                 'イベント': 'event'
             };
             
-            activeFilter = titleMapping[titleText] || 'all';
+            activeFilter = titleMapping[titleText];
         }
     });
     
     // Update active button
     filterButtons.forEach(btn => {
         btn.classList.remove('active');
-        if (btn.dataset.filter === activeFilter) {
+        if (activeFilter && btn.dataset.filter === activeFilter) {
             btn.classList.add('active');
         }
     });

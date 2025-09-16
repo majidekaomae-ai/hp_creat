@@ -210,11 +210,11 @@ body {
 }
 
 .filter-btn:hover, .filter-btn.active {
-    background: linear-gradient(135deg, #FF6B6B, #45B7D1);
+    background: linear-gradient(135deg, #FF0050, #FE2C55);
     color: white;
     border-color: transparent;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(255, 0, 80, 0.3);
 }
 
 .filter-icon {
@@ -333,12 +333,11 @@ body {
 }
 
 .portfolio-category {
-    color: #666;
+    color: white;
     font-size: 0.9rem;
     margin-bottom: 12px;
     padding: 4px 12px;
-    background: linear-gradient(135deg, #FF6B6B, #45B7D1);
-    color: white;
+    background: linear-gradient(135deg, #FF0050, #FE2C55);
     border-radius: 15px;
     display: inline-block;
 }
@@ -387,25 +386,9 @@ body {
     color: #bdc3c7;
 }
 
-/* Additional Category Styles */
-.filter-btn[data-filter="tiktok"]:hover,
-.filter-btn[data-filter="tiktok"].active {
-    background: linear-gradient(135deg, #FF0050, #FE2C55);
-}
 
-.filter-btn[data-filter="event"]:hover,
-.filter-btn[data-filter="event"].active {
-    background: linear-gradient(135deg, #8B5CF6, #EC4899);
-}
 
-/* Portfolio Category Colors */
-.portfolio-item[data-category="tiktok"] .portfolio-category {
-    background: linear-gradient(135deg, #FF0050, #FE2C55);
-}
 
-.portfolio-item[data-category="event"] .portfolio-category {
-    background: linear-gradient(135deg, #8B5CF6, #EC4899);
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
