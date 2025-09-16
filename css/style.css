@@ -42,11 +42,13 @@ body {
     padding: 1rem 0;
 }
 
-.logo svg {
+.logo-image {
+    height: 35px;
+    width: auto;
     transition: transform 0.3s ease;
 }
 
-.logo:hover svg {
+.logo:hover .logo-image {
     transform: scale(1.05);
 }
 
@@ -362,8 +364,14 @@ body {
     margin-bottom: 30px;
 }
 
-.footer-logo svg text {
-    fill: white;
+.footer-logo-image {
+    height: 30px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover .footer-logo-image {
+    transform: scale(1.05);
 }
 
 .footer-desc {
@@ -483,6 +491,14 @@ body {
 @media (max-width: 480px) {
     .container {
         padding: 0 15px;
+    }
+    
+    .logo-image {
+        height: 30px;
+    }
+    
+    .footer-logo-image {
+        height: 25px;
     }
     
     .hero-title {
