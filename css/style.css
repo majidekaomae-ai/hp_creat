@@ -54,23 +54,7 @@ body {
 
 
 
-.mobile-menu-btn {
-    display: none;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-}
 
-.mobile-menu-btn span {
-    width: 25px;
-    height: 3px;
-    background: linear-gradient(90deg, #FF6B6B, #45B7D1);
-    margin: 3px 0;
-    border-radius: 2px;
-    transition: 0.3s;
-}
 
 
 
@@ -443,13 +427,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav-list {
-        display: none;
-    }
-    
-    .mobile-menu-btn {
-        display: flex;
-    }
+
     
     /* 浮遊カラーエレメントをモバイルでさらに小さく調整 */
     .color-1 {
