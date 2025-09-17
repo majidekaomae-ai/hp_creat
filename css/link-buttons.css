@@ -1,0 +1,299 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f8f9fa;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCF7F, #4ECDC4, #45B7D1, #9B59B6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.site-url {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.site-url a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Button Section Styles */
+.button-section {
+    margin-bottom: 50px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.button-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 3px solid #FF0050;
+    padding-bottom: 10px;
+}
+
+.button-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+/* パターン1: シンプルボタン */
+.btn-simple {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+}
+
+.btn-simple:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+/* パターン2: カラフルグラデーションボタン */
+.btn-gradient {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #FF6B6B, #FFD93D, #6BCF7F, #4ECDC4, #45B7D1, #9B59B6);
+    background-size: 300% 100%;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* パターン3: ロゴ付きボタン */
+.btn-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 25px;
+    background: white;
+    color: #333;
+    text-decoration: none;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.btn-logo:hover {
+    border-color: #FF0050;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 80, 0.2);
+}
+
+.btn-logo-stripes {
+    display: flex;
+    gap: 2px;
+    height: 20px;
+}
+
+.stripe {
+    width: 4px;
+    height: 20px;
+    border-radius: 2px;
+}
+
+.stripe-1 { background: #FF6B6B; }
+.stripe-2 { background: #FFD93D; }
+.stripe-3 { background: #6BCF7F; }
+.stripe-4 { background: #4ECDC4; }
+.stripe-5 { background: #45B7D1; }
+.stripe-6 { background: #9B59B6; }
+
+/* パターン4: TikTokピンクボタン */
+.btn-tiktok {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #FF0050, #FE2C55);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 80, 0.3);
+}
+
+.btn-tiktok:hover {
+    background: linear-gradient(135deg, #E6004A, #E5284F);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 80, 0.4);
+}
+
+/* パターン5: カード型ボタン */
+.btn-card {
+    display: block;
+    max-width: 300px;
+    background: white;
+    text-decoration: none;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.btn-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-color: #FF0050;
+}
+
+.btn-card-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #FF0050, #FE2C55);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.btn-card-body {
+    padding: 20px;
+    color: #333;
+}
+
+.btn-card-body p {
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.btn-card-link {
+    color: #FF0050;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* パターン6: 小さなアイコンボタン */
+.btn-small {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+}
+
+.btn-small:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+.btn-small-text {
+    width: auto;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Page Footer */
+.page-footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .button-section {
+        padding: 20px;
+    }
+    
+    .button-preview {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .btn-card {
+        max-width: 100%;
+    }
+}

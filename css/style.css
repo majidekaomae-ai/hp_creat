@@ -143,39 +143,75 @@ body {
 }
 
 .color-1 {
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
     background: linear-gradient(45deg, #FF6B6B, #FFD93D);
-    top: 20%;
-    left: 10%;
+    top: 15%;
+    left: 8%;
     animation-delay: 0s;
 }
 
 .color-2 {
-    width: 60px;
-    height: 60px;
+    width: 25px;
+    height: 25px;
     background: linear-gradient(45deg, #6BCF7F, #4ECDC4);
-    top: 60%;
-    right: 15%;
+    top: 65%;
+    right: 12%;
     animation-delay: 1s;
 }
 
 .color-3 {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     background: linear-gradient(45deg, #45B7D1, #9B59B6);
-    top: 30%;
-    right: 30%;
+    top: 25%;
+    right: 25%;
     animation-delay: 2s;
 }
 
 .color-4 {
-    width: 70px;
-    height: 70px;
+    width: 35px;
+    height: 35px;
     background: linear-gradient(45deg, #9B59B6, #FF6B6B);
-    bottom: 20%;
-    left: 20%;
+    bottom: 25%;
+    left: 18%;
     animation-delay: 3s;
+}
+
+.color-5 {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #FFD93D, #6BCF7F);
+    top: 10%;
+    right: 8%;
+    animation-delay: 1.5s;
+}
+
+.color-6 {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(45deg, #4ECDC4, #FF6B6B);
+    bottom: 15%;
+    right: 20%;
+    animation-delay: 4s;
+}
+
+.color-7 {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(45deg, #9B59B6, #45B7D1);
+    top: 45%;
+    left: 5%;
+    animation-delay: 2.5s;
+}
+
+.color-8 {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+    top: 80%;
+    left: 40%;
+    animation-delay: 3.5s;
 }
 
 @keyframes float {
@@ -364,13 +400,20 @@ body {
     margin-bottom: 30px;
 }
 
-.footer-logo-image {
-    height: 30px;
-    width: auto;
+.footer-logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCF7F, #4ECDC4, #45B7D1, #9B59B6, #FF6B6B);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientFlow 4s ease-in-out infinite;
     transition: transform 0.3s ease;
 }
 
-.footer-logo:hover .footer-logo-image {
+.footer-logo:hover .footer-logo-text {
     transform: scale(1.05);
 }
 
@@ -406,6 +449,51 @@ body {
     
     .mobile-menu-btn {
         display: flex;
+    }
+    
+    /* 浮遊カラーエレメントをモバイルでさらに小さく調整 */
+    .color-1 {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .color-2 {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .color-3 {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .color-4 {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .color-5 {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .color-6 {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .color-7 {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .color-8 {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .floating-color {
+        opacity: 0.4;
     }
     
     .hero {
@@ -497,8 +585,8 @@ body {
         height: 30px;
     }
     
-    .footer-logo-image {
-        height: 25px;
+    .footer-logo-text {
+        font-size: 1.2rem;
     }
     
     .hero-title {
