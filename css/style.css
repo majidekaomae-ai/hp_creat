@@ -371,6 +371,69 @@ body {
 
 
 
+/* Portfolio Links */
+.portfolio-links {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.portfolio-link-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.portfolio-link-wrapper:hover .portfolio-link {
+    transform: scale(1.1);
+}
+
+.portfolio-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.youtube-link {
+    background: #FF0000;
+    color: white;
+    box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+}
+
+.portfolio-link-wrapper:hover .youtube-link {
+    background: #CC0000;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+.tiktok-link {
+    background: linear-gradient(135deg, #FF0050, #FE2C55);
+    color: white;
+    box-shadow: 0 2px 8px rgba(255, 0, 80, 0.3);
+}
+
+.portfolio-link-wrapper:hover .tiktok-link {
+    background: linear-gradient(135deg, #E6004A, #E5284F);
+    box-shadow: 0 4px 12px rgba(255, 0, 80, 0.4);
+}
+
+.portfolio-link-text {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.portfolio-link-wrapper:hover .portfolio-link-text {
+    color: #333;
+}
+
 /* Footer */
 .footer {
     background: linear-gradient(135deg, #2c3e50, #34495e);
