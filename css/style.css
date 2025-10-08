@@ -291,13 +291,19 @@ body {
     position: relative;
 }
 
+.category-title {
+    position: relative;
+    display: inline-block;
+}
+
 .category-title::after {
     content: '';
-    display: block;
-    width: 100px;
+    position: absolute;
+    bottom: -15px;
+    left: -20px;
+    right: -20px;
     height: 4px;
     background: linear-gradient(90deg, #FF6B6B, #45B7D1);
-    margin: 15px auto;
     border-radius: 2px;
 }
 
